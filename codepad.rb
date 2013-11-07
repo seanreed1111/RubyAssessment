@@ -92,15 +92,71 @@ ruby_school = {
 #   puts "value.kind_of?(String) = #{value.kind_of?(String)}"
 # end
 
-ruby_school.each_value do |outer_value|
+# this puts the value of all the items
+# ruby_school.each_value do |outer_value|
   
-  if outer_value.kind_of?(String) 
-    puts outer_value 
-  else
-    outer_value.each do |inner_value| 
-      inner_value.each_value {|inner_inner_value| puts inner_inner_value}
-    end
+#   if outer_value.kind_of?(String) 
+#     puts outer_value 
+#   else
+#     outer_value.each do |inner_value| 
+#       inner_value.each_value {|inner_inner_value| puts inner_inner_value}
+#     end
+#   end
+# end
+
+# ruby_school = { 
+#   :name => "Happy Funtime School",
+#   :location => "NYC",
+#   :instructors => [ 
+#     {:name=>"Blake", :subject=>"being awesome" },
+#     {:name=>"Ashley", :subject=>"being better than blake"},
+#     {:name=>"Jeff", :subject=>"karaoke"}
+#   ],
+#   :students => [ 
+#     {:name => "Marissa", :grade => "B"},
+#     {:name=>"Billy", :grade => "F"},
+#     {:name => "Frank", :grade => "A"},
+#     {:name => "Sophie", :grade => "C"}
+#   ]
+# }
+# ##4. Methods
+
+#   Note: You will need to pass the school variable to each of these methods to include it in scope.
+
+#   a.  
+#    i. Create a method to return the grade of a student, given that student's name.
+#    ii. Then use it to refactor your work in 3.i. 
+
+# def return_grade(school_name, student_name)
+#   school_name[:students].each do |item|
+#     item.each do |k,v|
+#       if item[:name] == student_name
+#         return item[:grade]
+#         #break
+#       end 
+#     end
+#   end
+#   return nil
+# end
+
+# def return_grade(school_name, student_name)
+# school_name[:students].each {|item| return item[:grade] if item[:name]== student_name}
+# end
+
+
+
+# puts return_grade(ruby_school, "Frank")
+
+def update_subject(school_name, instructor_name, new_subject)
+  school_name[:instructors].each do |instructor|
+    instructor[:subject] = new_subject if instructor[:name]== instructor_name
   end
 end
 
+update_subject(ruby_school, "Blake", "being terrible")
+puts ruby_school[:instructors]
 
+update_subject(ruby_school, "Ashleyy", "being cool")
+puts ruby_school[:instructors]
+
+  

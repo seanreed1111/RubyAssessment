@@ -127,9 +127,27 @@ ruby_school.each_value do |outer_value|
   end
 end
 
+# Question #4
+#
+#
+#
+#4a
+def return_grade(school_name, student_name)
+school_name[:students].each {|item| return item[:grade] if item[:name]== student_name}
+end
 
+#4b
+ 
+   i.Create a method to udpate a instructor's subject given the instructor and the new subject.
+   ii. Then use it to update Blake's subject to "being terrible".
 
+def update_subject(school_name, instructor_name, new_subject)
+  school_name[:instructors].each do |instructor|
+    instructor[:subject] = new_subject if instructor[:name]== instructor_name
+  end
+end
 
+update_subject(ruby_school, "Blake", "being terrible")
 
 
 
