@@ -57,11 +57,11 @@ instructor.each {|key,value| puts "The key name for the value 27 is #{key}" if v
 #   b. Add a student to the school's students' array.
 
 #   c. Remove "Billy" from the students' array.
-
 #   d. Add a key to every student in the students array called "semester" and assign it the value "Summer".
-#   e. Change Ashley's subject to "being almost better than Blake"
+#   
+#  e. Change Ashley's subject to "being almost better than Blake"
 #   f. Change Frank's grade from "A" to "F".
-#   g. Return the name of the student with a "B".
+#   **g. Return the name of the student with a "B".
 #   h. Return the subject of the instructor "Jeff".
 #   i. Write a statement to print out all the values in the school. ***FLAG
 
@@ -88,7 +88,47 @@ ruby_school[:students] << new_student  #part b
 
 puts "Deleting student Billy"
 
-ruby_school[:students].delete_at(1) #part c.  deletes Billy's record
+ruby_school[:students].delete_at(1) #part 3c.  deletes Billy's record
+ruby_school[:students].each {|item| item.merge!({semester: "Summer"})} #part 3d adds Summer Semester
+ruby_school[:instructors][1][:subject] = "being almost better than Blake" #part 3e
+ruby_school[:students][2][:grade] = "F" #part 3f
+
+#this is 3g -- rewrite with each blocks
+for num in 0..ruby_school[:students].length-1
+
+  if ruby_school[:students][num][:grade] == "B"
+    puts "The student with the grade of B is #{ruby_school[:students][num][:name]}" 
+  end
+end
+
+# this is 3g with .each
+ruby_school[:students].each do |item|
+
+  puts "#{item[:name]} has a grade of B." if item[:grade]=="B"
+    
+end
+
+#3h
+ruby_school[:instructors].each do |item|
+
+  puts "Jeff's subject is #{item[:subject]}" if item[:name]=="Jeff"
+    
+end
+
+#3i
+ruby_school.each_value do |outer_value|
+  
+  if outer_value.kind_of?(String) 
+    puts outer_value 
+  else
+    outer_value.each do |inner_value| 
+      inner_value.each_value {|inner_inner_value| puts inner_inner_value}
+    end
+  end
+end
+
+
+
 
 
 
