@@ -104,21 +104,7 @@ ruby_school = {
 #   end
 # end
 
-# ruby_school = { 
-#   :name => "Happy Funtime School",
-#   :location => "NYC",
-#   :instructors => [ 
-#     {:name=>"Blake", :subject=>"being awesome" },
-#     {:name=>"Ashley", :subject=>"being better than blake"},
-#     {:name=>"Jeff", :subject=>"karaoke"}
-#   ],
-#   :students => [ 
-#     {:name => "Marissa", :grade => "B"},
-#     {:name=>"Billy", :grade => "F"},
-#     {:name => "Frank", :grade => "A"},
-#     {:name => "Sophie", :grade => "C"}
-#   ]
-# }
+
 # ##4. Methods
 
 #   Note: You will need to pass the school variable to each of these methods to include it in scope.
@@ -147,16 +133,46 @@ ruby_school = {
 
 # puts return_grade(ruby_school, "Frank")
 
-def update_subject(school_name, instructor_name, new_subject)
-  school_name[:instructors].each do |instructor|
-    instructor[:subject] = new_subject if instructor[:name]== instructor_name
-  end
+# def update_subject(school_name, instructor_name, new_subject)
+#   school_name[:instructors].each do |instructor|
+#     instructor[:subject] = new_subject if instructor[:name]== instructor_name
+#   end
+# end
+
+# update_subject(ruby_school, "Blake", "being terrible")
+# puts ruby_school[:instructors]
+
+# def new_student(school_name, student_info)
+#   school_name[:students] << student_info
+# end
+  
+# my_info = {name: "Sean", grade: "A+", semester: "Summer"}
+
+# new_student(ruby_school, my_info)
+# puts ruby_school[:students]
+
+# ruby_school = { 
+#   :name => "Happy Funtime School",
+#   :location => "NYC",
+#   :instructors => [ 
+#     {:name=>"Blake", :subject=>"being awesome" },
+#     {:name=>"Ashley", :subject=>"being better than blake"},
+#     {:name=>"Jeff", :subject=>"karaoke"}
+#   ],
+#   :students => [ 
+#     {:name => "Marissa", :grade => "B"},
+#     {:name=>"Billy", :grade => "F"},
+#     {:name => "Frank", :grade => "A"},
+#     {:name => "Sophie", :grade => "C"}
+#   ]
+# }
+
+def add_new_key(school_name, key, value)
+  school_name[key] = value
 end
 
-update_subject(ruby_school, "Blake", "being terrible")
-puts ruby_school[:instructors]
+add_new_key(ruby_school, :ranking, 1)
+ruby_school.each {|item| puts item}
 
-update_subject(ruby_school, "Ashleyy", "being cool")
-puts ruby_school[:instructors]
 
   

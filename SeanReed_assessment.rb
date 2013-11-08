@@ -149,5 +149,32 @@ end
 
 update_subject(ruby_school, "Blake", "being terrible")
 
+#4c
+# i. Create a method to add a new student to the schools student array. 
+# ii. Then use it to add yourself to the school students array.
+
+def new_student(school_name, student_info)
+  school_name[:students] << student_info
+end
+  
+my_info = {name: "Sean", grade: "A+", semester: "Summer"}
+
+new_student(ruby_school, my_info)
+
+# 4d
+#
+#i. Create a method that adds a new key at the top level of the school hash, given a key and a value. 
+#ii. Then use it to add a "Ranking" key with the value 1.
+
+def add_new_key(school_name, key, value)
+  school_name[key] = value
+end
+
+add_new_key(ruby_school, :ranking, 1)
+
+
+#5a 
+#
+#
 
 
